@@ -8,18 +8,18 @@ class SelectMonth extends Component {
   render() {
     return (
         <select className={CSS.Select}>
-          <option value="January">Volvo</option>
-          <option value="February">Saab</option>
-          <option value="March">Mercedes</option>
-          <option value="April">Audi</option>
-          <option value="May">Audi</option>
-          <option value="June">Audi</option>
-          <option value="July">Audi</option>
-          <option value="August">Audi</option>
-          <option value="September">Audi</option>
-          <option value="October">Audi</option>
-          <option value="November">Audi</option>
-          <option value="December">Audi</option>
+            <option value="January">ינואר</option>
+            <option value="February">פברואר</option>
+            <option value="March">מרץ</option>
+            <option value="April">אפריל</option>
+            <option value="May">מאי</option>
+            <option value="June">יוני</option>
+            <option value="July">יולי</option>
+            <option value="August">אוגוסט</option>
+            <option value="September">ספטמבר</option>
+            <option value="October">אוקטובר</option>
+            <option value="November">נובמבר</option>
+            <option value="December">דצמבר</option>
           </select>
     );
   }

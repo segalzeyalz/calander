@@ -2,5 +2,10 @@
     color:#a4a4a2;
     width:210px;
     height: 36px;
-    font-family: Almoni 15px;
+    font-family: Almoni 15px bold;
+    flex: 0 1 auto;
+    align-self: auto;
+    text-align-last:right;
+    direction: rtl;
+    background-color:#FAFAFA;
 }
