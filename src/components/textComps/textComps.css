@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'Almoni';
+    font-style: normal;
+    font-weight: 700;
+    src:url('../../generalStyle/fonts/almoni-dl-aaa-700.eot');
+    src: url('../../generalStyle/fonts/almoni-dl-aaa-700.woff') format('woff'),
+         url('../../generalStyle/fonts/almoni-dl-aaa-700.ttf') format('truetype'),
+         url('../../generalStyle/fonts/almoni-dl-aaa-700.eot') format('eot');
+  }
 :local(.SimetricX) {
     color: #AFAFB0;
     cursor: pointer;
@@ -5,9 +14,14 @@
     margin-left: 12px;
 }
 
-:local(.SimetricX) {
-    color: #AFAFB0;
-    cursor: pointer;
-    margin-top: 21px;
-    margin-left: 12px;
+:local(.Title) {
+    color: #776963;
+    font-family: Almoni 19px bold;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: stretch;
 }
+
