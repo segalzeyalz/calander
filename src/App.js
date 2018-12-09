@@ -23,7 +23,6 @@ class datepicker extends Component {
         <SimetricX hideElement={this.hideCalander}/>
         <CalenderTitle type={calenderTypes.Exit}/>
         <ChooseMonth/>
-        <Moment format="DD/MM/YYYY" date={"1976-04-19T12:59-0500"} />
       </div>
     );
   }
