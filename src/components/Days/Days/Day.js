@@ -6,10 +6,9 @@ class Day extends Component {
     super(props)
   }
   render() {
-    console.log(this.props)
     return (
-      <div>
-        {this.props.num}
+      <div className={CSS.Day}>
+        <span className={this.props.num>=this.props.startDay? CSS.DayNumOn:CSS.DayNumOff}>{this.props.num}</span>
       </div>
     );
   }

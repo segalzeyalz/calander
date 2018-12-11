@@ -4,3 +4,4 @@ export const CHANGE_MONTH = 'CHANGE_MONTH';
 export const CHOOSE_MONTH = 'CHOOSE_MONTH';
 export const SELECT_DAY = 'SELECT_DAY';
 export const DAYS_IN_MONTH = 'DAYS_IN_MONTH';
+export const CLOSE_CALANDER = 'CLOSE_CALANDER';
