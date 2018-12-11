@@ -12,7 +12,7 @@ class Days extends Component {
                 {this.props.days.map(day => (
                     <Day 
                         key={day.name}
-                        num={day.num} 
+                        num={day} 
                         date={day.date} 
                         selected={day.selected} 
                         clicked={() => this.props.onSelectDay(day.date)}/>
