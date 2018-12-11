@@ -4,9 +4,6 @@ import BtnMonth from './BtnMonth/BtnMonth'
 import SelectMonth from './SelectMonth/SelectMonth'
 
 class ChooseMonth extends Component {
-  constructor(props){
-    super(props)
-  }
   render() {
     return (
       <div className={CSS.Container}>

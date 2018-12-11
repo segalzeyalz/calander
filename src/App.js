@@ -7,20 +7,11 @@ import calenderTypes from './logics/calenderTypes.json'
 import CSS from './App.css';
 
 class datepicker extends Component {
-  constructor(props){
-    super(props);
-      this.state = {
-        showCalander:true
-    }
-    this.hideCalander = this.hideCalander.bind(this)
-  }
-  hideCalander(){
-    this.setState({showCalander:false})
-  }
+  
   render() {
     return (
-      <div className={this.state.showCalander? CSS.card:CSS.hide}>
-        <SimetricX hideElement={this.hideCalander}/>
+      <div className={CSS.card}>
+        <SimetricX/>
         <CalenderTitle type={calenderTypes.Exit}/>
         <ChooseMonth/>
       </div>

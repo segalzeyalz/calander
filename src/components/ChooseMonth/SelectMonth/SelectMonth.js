@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import CSS from './SelectMonth.css';
 
 class SelectMonth extends Component {
-  constructor(props){
-    super(props);
-  }
   render() {
     return (
         <select className={CSS.Select}>
