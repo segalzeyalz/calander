@@ -1,8 +1,9 @@
 import * as actionTypes from './actions';
+import Moment from '../../node_modules/react-moment';
 
 const initialState = {
     monthes: [],
-    chosenMonth:"July"
+    chosenMonth:0,
 };
 
 const reducer = ( state = initialState, action ) => {
@@ -10,7 +11,17 @@ const reducer = ( state = initialState, action ) => {
         case actionTypes.NEXT_MONTH:
             return {
                 ...state,
-                chosenMonth: state.monthes[state.monthes.findIndex("functionThatFindMonthHere")+1]
+                chosenMonth: state.chosenMonth<12? state.chosenMonth+1: state.chosenMonth
+            }
+        case actionTypes.PREV_MONTH:
+            return {
+                ...state,
+                chosenMonth: state.chosenMonth>0? state.chosenMonth-1: state.chosenMonth
+            }
+        case actionTypes.CHOOSE_MONTH:
+            return {
+                ...state,
+                chosenMonth: action.month
             }
     }
     return state;
