@@ -4,6 +4,7 @@ import SimetricX from './components/textComps/SimetricX'
 import CalenderTitle from './components/textComps/CalenderTitle'
 import ChooseMonth from './components/ChooseMonth/ChooseMonth'
 import calenderTypes from './logics/calenderTypes.json'
+import Days from './containers/Days'
 import CSS from './App.css';
 
 class datepicker extends Component {
@@ -14,6 +15,7 @@ class datepicker extends Component {
         <SimetricX/>
         <CalenderTitle type={calenderTypes.Exit}/>
         <ChooseMonth/>
+        <Days />
       </div>
     );
   }

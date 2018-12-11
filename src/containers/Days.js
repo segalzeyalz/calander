@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 import Day from '../components/Days/Days/Day';
 import * as actionTypes from '../store/actions';
 
-class Persons extends Component {
+class Days extends Component {
     
     render () {
         return (
             <div>
-                {this.props.dys.map(day => (
+                {this.props.days.map(day => (
                     <Day 
                         key={day.name}
                         num={day.num} 
