@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CSS from './Days.css'
 import { connect } from 'react-redux';
-
+import moment from 'moment'
 import Day from '../components/Days/Days/Day';
 import * as actionTypes from '../store/actions';
 
@@ -13,21 +13,21 @@ class Days extends Component {
         this.props.updateDays()
     }
     render () {
-        console.log(this.props.dates)
         let {chosenMonth, dates} = this.props;
-        console.log(dates, chosenMonth)
         let monthIdx = dates.findIndex((elem)=>elem.id==chosenMonth)
-        let daysArray = dates &&dates[0] ? Array.from(new Array(dates[monthIdx].daysInMonth),(val,index)=>index+1):[]
+        let daysArray = monthIdx>=0 && dates && dates[0] ? Array.from(new Array(dates[monthIdx].daysInMonth),(val,index)=>index+1):[]
+        let isThisMonth = chosenMonth==(moment().locale("he").format("M"))
         return (
             <div className={CSS.Container}>
-                {daysArray.map(day => (
+                {daysArray.map((day,index) => (
                     <Day 
                         key={day.date}
-                        num={day.date} 
-                        date={day.date} 
+                        num={index+1} 
+                        date={dates[monthIdx]} 
+                        isThisMonth={isThisMonth}
                         startDay={this.props.startDay}
                         selected={day.selected} 
-                        clicked={() => this.props.onSelectDay(day.date)}/>
+                        clicked={this.props.onSelectDay}/>
                 ))}
             </div>
         );

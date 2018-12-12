@@ -6,9 +6,9 @@ class SelectMonth extends Component {
   }
   render() {
     return (
-        <select className={CSS.Select}>
+        <select className={CSS.Select} onSelect={() =>this.props.onSelect()}>
         {this.props.dates.map(date => (
-            <option value={date.Month}>{date.Month}</option>
+            <option key={date.Month} value={date.Month}>{date.Month}</option>
         ))}
         </select>
     );

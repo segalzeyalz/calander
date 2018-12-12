@@ -5,8 +5,8 @@ import 'moment/locale/he';
 const initialState = {
     dates: [],
     chosenMonth: (moment().locale("he").format("M")),
-    startMonth: (new Date()).getMonth(),
-    startDay: (new Date()).getDate(),
+    startDay: (moment().locale("he").format("DD")),
+    countDays:0,
     isOpen: true,
     selectedDay: ''
 };
@@ -17,21 +17,23 @@ const reducer = (state = initialState, action) => {
             //Increase the month by one
             return {
                 ...state,
-                chosenMonth: state.chosenMonth < 12 ? state.chosenMonth + 1 : state.chosenMonth
+                chosenMonth: state.chosenMonth <12 ? state.chosenMonth+1:1
             }
         case actionTypes.PREV_MONTH:
             //Go back to previous month
             return {
                 ...state,
-                chosenMonth: state.chosenMonth > 0 ? state.chosenMonth - 1 : state.chosenMonth
+                chosenMonth: state.chosenMonth ==1 ? 12:state.chosenMonth-1
             }
         case actionTypes.CHOOSE_MONTH:
             //Change month selected
+            console.log(action.month)
             return {
                 ...state,
                 chosenMonth: action.month
             }
         case actionTypes.SELECT_DAY:
+        console.log(action.selectedDay)
             return {
                 ...state,
                 selectedDay: action.selectedDay
@@ -43,10 +45,15 @@ const reducer = (state = initialState, action) => {
             }
         case actionTypes.UPDATE_DATES:
             let dateObj = [];
+            let firstEngMonth = moment();
             let firstMonth = moment().locale("he")
             for(let i=0; i<12; i++){
-                dateObj.push({"id":firstMonth.format("M"),"Month": firstMonth.format("MMMM YYYY"),daysInMonth:firstMonth.daysInMonth()})
-                firstMonth.add(1,'M')
+                dateObj.push({"id":firstMonth.format("M"),
+                              "Month": firstMonth.format("MMMM YYYY"),
+                              "EngMonth": firstEngMonth.format("M/YYYY"),
+                              "daysInMonth":firstMonth.daysInMonth() })
+                firstMonth.add(1,'M');
+                firstEngMonth.add(1,'M');
             }
             return {...state,
                 dates:dateObj}
