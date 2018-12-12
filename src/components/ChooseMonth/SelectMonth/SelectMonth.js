@@ -1,23 +1,18 @@
 import React, { Component } from 'react';
 import CSS from './SelectMonth.css';
-
+import moment from 'moment';
+import 'moment/locale/he' 
 class SelectMonth extends Component {
+  componentDidMount(){
+
+  }
   render() {
+      moment().locale("he")
+      var deMarch = moment('2017-03')
+      console.log(console.log(deMarch.format('MMMM')));
     return (
         <select className={CSS.Select}>
-            <option value="January">ינואר</option>
-            <option value="February">פברואר</option>
-            <option value="March">מרץ</option>
-            <option value="April">אפריל</option>
-            <option value="May">מאי</option>
-            <option value="June">יוני</option>
-            <option value="July">יולי</option>
-            <option value="August">אוגוסט</option>
-            <option value="September">ספטמבר</option>
-            <option value="October">אוקטובר</option>
-            <option value="November">נובמבר</option>
-            <option value="December">דצמבר</option>
-          </select>
+        </select>
     );
   }
 }

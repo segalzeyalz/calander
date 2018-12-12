@@ -7,7 +7,6 @@ import ChooseMonth from './components/ChooseMonth/ChooseMonth'
 import calenderTypes from './logics/calenderTypes.json'
 import Days from './containers/Days'
 import CSS from './App.css';
-
 import { connect } from 'react-redux';
 
 class DatePicker extends Component {
@@ -36,5 +35,4 @@ const mapDispatchToProps = dispatch => {
     onClose: (date) => dispatch({type: actionTypes.CLOSE_CALANDER})
   }
 };
-
 export default connect(mapStateToProps, mapDispatchToProps)(DatePicker);

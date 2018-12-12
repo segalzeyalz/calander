@@ -47,6 +47,16 @@ const reducer = ( state = initialState, action ) => {
                 ...state,
                 isOpen:false            
             }
+        case actionTypes.UPDATE_DATES:
+            let {dayCurrentMonth} = state;
+            var days =[]
+            for(let i=0; i<dayCurrentMonth; i++){
+                days.push(i)
+            }
+            return {
+                ...state,
+                days:days            
+            }
     }
     return state;
 };
