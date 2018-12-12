@@ -6,3 +6,5 @@ export const SELECT_DAY = 'SELECT_DAY';
 export const DAYS_IN_MONTH = 'DAYS_IN_MONTH';
 export const CLOSE_CALANDER = 'CLOSE_CALANDER';
 export const UPDATE_DATES = 'UPDATE_DATES';
+export const GET_MONTHES = 'GET_MONTHES';
+export const GET_DAYS = 'GET_DAYS';

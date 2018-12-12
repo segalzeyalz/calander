@@ -1,29 +1,29 @@
 import * as actionTypes from './actions';
+import moment from 'moment';
+import 'moment/locale/he';
 
 const initialState = {
-    monthes: [1,2,3,4,5,6,7,8,9,10,11,12],
-    days: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31],
-    chosenMonth:(new Date()).getMonth(),
+    dates: [],
+    chosenMonth: (moment().locale("he").format("M")),
     startMonth: (new Date()).getMonth(),
     startDay: (new Date()).getDate(),
-    dayCurrentMonth:29,
-    isOpen:true,
-    selectedDay:''
+    isOpen: true,
+    selectedDay: ''
 };
 
-const reducer = ( state = initialState, action ) => {
-    switch ( action.type ) {
+const reducer = (state = initialState, action) => {
+    switch (action.type) {
         case actionTypes.NEXT_MONTH:
             //Increase the month by one
             return {
                 ...state,
-                chosenMonth: state.chosenMonth<12? state.chosenMonth+1: state.chosenMonth
+                chosenMonth: state.chosenMonth < 12 ? state.chosenMonth + 1 : state.chosenMonth
             }
         case actionTypes.PREV_MONTH:
             //Go back to previous month
             return {
                 ...state,
-                chosenMonth: state.chosenMonth>0? state.chosenMonth-1: state.chosenMonth
+                chosenMonth: state.chosenMonth > 0 ? state.chosenMonth - 1 : state.chosenMonth
             }
         case actionTypes.CHOOSE_MONTH:
             //Change month selected
@@ -31,31 +31,33 @@ const reducer = ( state = initialState, action ) => {
                 ...state,
                 chosenMonth: action.month
             }
-        case actionTypes.DAYS_IN_MONTH:
-        //Get days in a month
-            return {
-                ...state,
-                dayCurrentMonth: state.dayCurrentMonth
-            }
         case actionTypes.SELECT_DAY:
             return {
                 ...state,
-                selectedDay:action.selectedDay
+                selectedDay: action.selectedDay
             }
         case actionTypes.CLOSE_CALANDER:
             return {
                 ...state,
-                isOpen:false            
+                isOpen: false
             }
         case actionTypes.UPDATE_DATES:
+            let dateObj = [];
+            let firstMonth = moment().locale("he")
+            for(let i=0; i<12; i++){
+                dateObj.push({"id":firstMonth.format("M"),"Month": firstMonth.format("MMMM YYYY"),daysInMonth:firstMonth.daysInMonth()})
+                firstMonth.add(1,'M')
+            }
+            return {...state,
+                dates:dateObj}
+        case actionTypes.GET_MONTHES:
             let {dayCurrentMonth} = state;
-            var days =[]
-            for(let i=0; i<dayCurrentMonth; i++){
+            var days = []
+            for (let i = 0; i < dayCurrentMonth; i++) {
                 days.push(i)
             }
             return {
                 ...state,
-                days:days            
             }
     }
     return state;

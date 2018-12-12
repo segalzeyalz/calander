@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import CSS from './ChooseMonth.css';
+import { connect } from 'react-redux';
+import * as actionTypes from './../../store/actions';
 import BtnMonth from './BtnMonth/BtnMonth'
 import SelectMonth from './SelectMonth/SelectMonth'
 
@@ -8,11 +10,22 @@ class ChooseMonth extends Component {
     return (
       <div className={CSS.Container}>
         <BtnMonth type="next"/>
-        <SelectMonth/>
+        <SelectMonth dates={this.props.dates} onSelect={this.props.onMount}/>
         <BtnMonth type="before"/>        
       </div>
     );
   }
 }
 
-export default ChooseMonth;
+const mapStateToProps = state => {
+  return {
+      dates: state.dates  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onMount: () => dispatch({type: actionTypes.UPDATE_DATES})
+  }
+};
+export default connect(mapStateToProps, mapDispatchToProps)(ChooseMonth);
+

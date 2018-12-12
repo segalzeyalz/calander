@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import * as actionTypes from './store/actions';
-import Moment from 'react-moment';
 import SimetricX from './components/textComps/SimetricX'
 import CalenderTitle from './components/textComps/CalenderTitle'
 import ChooseMonth from './components/ChooseMonth/ChooseMonth'
@@ -24,14 +23,12 @@ class DatePicker extends Component {
 
 const mapStateToProps = state => {
   return {
-      days: state.days,
       isOpen: state.isOpen
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSelectDay: (date) => dispatch({type: actionTypes.SELECT_DAY , date: date}),
     onClose: (date) => dispatch({type: actionTypes.CLOSE_CALANDER})
   }
 };
