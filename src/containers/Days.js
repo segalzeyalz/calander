@@ -15,7 +15,9 @@ class Days extends Component {
     render () {
         console.log(this.props.dates)
         let {chosenMonth, dates} = this.props;
-        let daysArray = dates &&dates[0] ? Array.from(new Array(this.props.dates[chosenMonth].daysInMonth),(val,index)=>index+1):[]
+        console.log(dates, chosenMonth)
+        let monthIdx = dates.findIndex((elem)=>elem.id==chosenMonth)
+        let daysArray = dates &&dates[0] ? Array.from(new Array(dates[monthIdx].daysInMonth),(val,index)=>index+1):[]
         return (
             <div className={CSS.Container}>
                 {daysArray.map(day => (

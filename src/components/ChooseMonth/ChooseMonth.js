@@ -10,7 +10,7 @@ class ChooseMonth extends Component {
     return (
       <div className={CSS.Container}>
         <BtnMonth type="next"/>
-        <SelectMonth dates={this.props.dates} onSelect={this.props.onMount}/>
+        <SelectMonth dates={this.props.dates} onMount={this.props.onMount}/>
         <BtnMonth type="before"/>        
       </div>
     );
