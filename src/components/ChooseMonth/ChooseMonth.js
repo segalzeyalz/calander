@@ -10,7 +10,7 @@ class ChooseMonth extends Component {
     return (
       <div className={CSS.Container}>
         <BtnMonth type="next" onNext={this.props.onNext}/>
-        <SelectMonth chosenMonth={this.props.chosenMonth} onSelect={this.props.onSelect} dates={this.props.dates} onMount={this.props.onMount}/>
+        <SelectMonth chosenMonth={this.props.chosenMonth} dates={this.props.dates} onMount={this.props.onMount}/>
         <BtnMonth type="before" onPrev={this.props.onPrev}/>        
       </div>
     );
@@ -26,7 +26,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onMount: () => dispatch({type: actionTypes.UPDATE_DATES}),
-    onSelect: (month) => dispatch({type: actionTypes.CHOOSE_MONTH, month:month}),
+    onSelect: (event) => dispatch({type: actionTypes.CHOOSE_MONTH, month: event}),
     onNext: () => dispatch({type: actionTypes.NEXT_MONTH}),
     onPrev: () => dispatch({type: actionTypes.PREV_MONTH})
   }

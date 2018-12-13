@@ -20,7 +20,7 @@ class Days extends Component {
             <div className={CSS.Container}>
                 {daysArray.map((day,index) => (
                     <Day 
-                        key={day.date}
+                        key={index}
                         num={index+1} 
                         date={dates[monthIdx]} 
                         startDay={this.props.startDay}

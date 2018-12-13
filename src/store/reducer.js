@@ -10,9 +10,7 @@ const initialState = {
         month: moment().month(),
         year: moment().year()
     },
-    countDays:0,
-    isOpen: true,
-    selectedDay: ''
+    isOpen: true
 };
 
 const reducer = (state = initialState, action) => {
@@ -31,7 +29,7 @@ const reducer = (state = initialState, action) => {
             }
         case actionTypes.CHOOSE_MONTH:
             //Change month selected
-            console.log(action.month)
+            console.log(action)
             return {
                 ...state,
                 chosenMonth: action.month
@@ -60,15 +58,7 @@ const reducer = (state = initialState, action) => {
             }
             return {...state,
                 dates:dateObj}
-        case actionTypes.GET_MONTHES:
-            let {dayCurrentMonth} = state;
-            var days = []
-            for (let i = 0; i < dayCurrentMonth; i++) {
-                days.push(i)
-            }
-            return {
-                ...state,
-            }
+
     }
     return state;
 };
