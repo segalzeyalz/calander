@@ -16,7 +16,6 @@ class Days extends Component {
         let {chosenMonth, dates} = this.props;
         let monthIdx = dates.findIndex((elem)=>elem.id==chosenMonth)
         let daysArray = monthIdx>=0 && dates && dates[0] ? Array.from(new Array(dates[monthIdx].daysInMonth),(val,index)=>index+1):[]
-        let isThisMonth = chosenMonth==(moment().locale("he").format("M"))
         return (
             <div className={CSS.Container}>
                 {daysArray.map((day,index) => (
@@ -24,9 +23,7 @@ class Days extends Component {
                         key={day.date}
                         num={index+1} 
                         date={dates[monthIdx]} 
-                        isThisMonth={isThisMonth}
                         startDay={this.props.startDay}
-                        selected={day.selected} 
                         clicked={this.props.onSelectDay}/>
                 ))}
             </div>

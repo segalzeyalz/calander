@@ -4,8 +4,12 @@ import 'moment/locale/he';
 
 const initialState = {
     dates: [],
-    chosenMonth: (moment().locale("he").format("M")),
-    startDay: (moment().locale("he").format("DD")),
+    chosenMonth: (moment().locale("he").format("MM")),
+    startDay: {
+        day: moment().date(),
+        month: moment().month(),
+        year: moment().year()
+    },
     countDays:0,
     isOpen: true,
     selectedDay: ''
@@ -45,15 +49,14 @@ const reducer = (state = initialState, action) => {
             }
         case actionTypes.UPDATE_DATES:
             let dateObj = [];
-            let firstEngMonth = moment();
             let firstMonth = moment().locale("he")
             for(let i=0; i<12; i++){
                 dateObj.push({"id":firstMonth.format("M"),
-                              "Month": firstMonth.format("MMMM YYYY"),
-                              "EngMonth": firstEngMonth.format("M/YYYY"),
+                              "MonthName": firstMonth.format("MMMM YYYY"),
+                              "MonthNum": firstMonth.format("MM"),
+                              "Year": firstMonth.format("YYYY"),
                               "daysInMonth":firstMonth.daysInMonth() })
                 firstMonth.add(1,'M');
-                firstEngMonth.add(1,'M');
             }
             return {...state,
                 dates:dateObj}
