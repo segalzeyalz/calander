@@ -24,4 +24,13 @@
     align-content: center;
     align-items: stretch;
 }
-
+:local(.DayNames) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    direction: rtl;
+    color:#A7A7A7;
+ }

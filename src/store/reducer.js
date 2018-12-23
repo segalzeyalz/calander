@@ -8,7 +8,8 @@ const initialState = {
     startDay: {
         day: moment().date(),
         month: moment().month(),
-        year: moment().year()
+        year: moment().year(),
+        dayNum:moment().day()
     },
     isOpen: true
 };
