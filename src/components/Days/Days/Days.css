@@ -19,3 +19,8 @@
     text-align: center;
     color: #D7D6D6;
 }
+:local(.BlankDay) {
+    height: 38px;
+    width: 38px;
+    margin: 1px;
+}
