@@ -5,6 +5,7 @@ import CalenderTitle from './components/textComps/CalenderTitle'
 import ChooseMonth from './components/ChooseMonth/ChooseMonth'
 import calenderTypes from './logics/calenderTypes.json'
 import Days from './containers/Days'
+import Detailes from './components/Detailes/Detailes'
 import CSS from './App.css';
 import { connect } from 'react-redux';
 
@@ -16,6 +17,7 @@ class DatePicker extends Component {
         <CalenderTitle type={calenderTypes.Exit}/>
         <ChooseMonth/>
         <Days />
+        <Detailes/>
       </div>
     );
   }

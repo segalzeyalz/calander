@@ -1,0 +1,10 @@
+:local(.Detailes) {
+    margin-top:23px;
+    color:#808688;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-content: stretch;
+    align-items: flex-end;
+}
