@@ -22,6 +22,7 @@ class Days extends Component {
                     <Day 
                         key={index}
                         num={index+1} 
+                        CharterDay={index==25}
                         date={dates[monthIdx]} 
                         startDay={this.props.startDay}
                         clicked={this.props.onSelectDay}/>

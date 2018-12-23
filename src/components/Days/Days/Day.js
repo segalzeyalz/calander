@@ -11,7 +11,7 @@ class Day extends Component {
     let dateStartDay=moment().year(startDay.year).month(startDay.month).date(startDay.day)
     let enableOrDisable = (date.isAfter(dateStartDay));
     return (
-      <div className={CSS.Day} align="center">
+      <div className={[CSS.Day, this.props.CharterDay? CSS.CharterDay:'none'].join(' ')} align="center">
         <span onClick={()=>{enableOrDisable && console.log(date.format("DD/MM/YYYY"))}} className={enableOrDisable? CSS.DayNumOn:CSS.DayNumOff}>{this.props.num}</span>
       </div>
     );
