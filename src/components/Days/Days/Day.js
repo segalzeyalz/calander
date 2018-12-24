@@ -6,6 +6,7 @@ import 'moment/locale/he';
 class Day extends Component {
   render() {
     let {num, startDay} = this.props;
+    
     let {MonthNum, Year} = this.props.date
     let date=moment().year(Year).month(MonthNum-1).date(num)
     let dateStartDay=moment().year(startDay.year).month(startDay.month).date(startDay.day)

@@ -9,3 +9,8 @@
     direction: rtl;
     margin-right: 10px;
 }
+:local(.BlankDay) {
+    height: 38px;
+    width: 38px;
+    margin: 1px;
+}

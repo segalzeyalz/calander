@@ -16,8 +16,13 @@ class Days extends Component {
         let {chosenMonth, dates} = this.props;
         let monthIdx = dates.findIndex((elem)=>elem.id==chosenMonth)
         let daysArray = monthIdx>=0 && dates && dates[0] ? Array.from(new Array(dates[monthIdx].daysInMonth),(val,index)=>index+1):[]
+        let firstDateMonth=monthIdx>=0 && dates && dates[0] ? (moment().year(dates[monthIdx].Year).month(dates[monthIdx].MonthNum-1).date(1).day()): ''
+        let blankDaysArray =  Array.from(new Array(firstDateMonth),(val,index)=>index+1)
         return (
             <div className={CSS.Container}>
+            {blankDaysArray.map((day,index) => (
+                    <div className={CSS.BlankDay}/>
+                ))}
                 {daysArray.map((day,index) => (
                     <Day 
                         key={index}
