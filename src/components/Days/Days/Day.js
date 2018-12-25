@@ -13,9 +13,10 @@ class Day extends Component {
     let enableOrDisable = (date.isAfter(dateStartDay));
 
     return (
-      <div className={[CSS.Day, this.props.CharterDay? CSS.CharterDay:'none', enableOrDisable? CSS.DayOn:'none'].join(' ')} align="center">
+      <div onClick={()=>{enableOrDisable && console.log(date.format("DD/MM/YYYY"))}} 
+        className={[CSS.Day, this.props.CharterDay? CSS.CharterDay:'none', enableOrDisable? CSS.DayOn:'none'].join(' ')}
+        align="center">
         <span
-        onClick={()=>{enableOrDisable && console.log(date.format("DD/MM/YYYY"))}}
         className={[enableOrDisable? CSS.DayNumOn:CSS.DayNumOff,CSS.DaySpan].join(' ')}>{this.props.num}</span>
       </div>
       )

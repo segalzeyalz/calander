@@ -12,10 +12,12 @@
     justify-content: center;
     align-content: stretch;
     align-items: center;
+    user-select: none;
     cursor: pointer;
 }
 :local(.Disable){
     color:#F2F2F2;
+    cursor:not-allowed;
 }
 :local(.Arrow){
     user-select: none;
