@@ -16,7 +16,9 @@
 
 :local(.Title) {
     color: #776963;
-    font-family: Almoni 19px bold;
+    font-family: Almoni;
+    font-size: 19px;
+    font-weight: 700;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;

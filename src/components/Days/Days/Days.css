@@ -7,6 +7,14 @@
     border-radius: 50%;
     font-weight: 700;
 }
+:local(.DayOn:hover) {
+    background-color: #25877D;
+    color: #fff;
+}
+:local(.DayOn .DayNumOn:hover) {
+    color: #fff;
+}
+
 :local(.CharterDay) {
     background-color: #FFE9F1;
 }
@@ -15,6 +23,10 @@
     color: #2C95A2;
     cursor: pointer;
 }
+:local(.DayNumOn:hover) {
+    color: #fff;
+}
+
 :local(.DayNumOff) {
     text-align: center;
     color: #D7D6D6;

@@ -6,7 +6,7 @@ class BtnMonth extends Component {
       const typeArrow = this.props.type==="next"? "‹":"›";
     return (
       <div onClick={this.props.onPrev || this.props.onNext} className={CSS.Border}>
-        {typeArrow}
+        <span className={CSS}>{typeArrow}</span>
       </div>
     );
   }
