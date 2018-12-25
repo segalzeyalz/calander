@@ -10,26 +10,26 @@
 :local(.DayOn:hover) {
     background-color: #25877D;
     color: #fff;
+    
 }
-:local(.DayOn .DayNumOn:hover) {
-    color: #fff;
+:local(.DayOn) {
+    color: #2C95A2;
+    cursor: pointer;
+    
 }
 
 :local(.CharterDay) {
     background-color: #FFE9F1;
 }
-:local(.DayNumOn) {
-    text-align: center;
-    color: #2C95A2;
-    cursor: pointer;
-}
-:local(.DayNumOn:hover) {
-    color: #fff;
+:local(.DaySpan) {
+    position: relative;
+    top: 20%;
 }
 
 :local(.DayNumOff) {
     text-align: center;
     color: #D7D6D6;
+    
 }
 :local(.BlankDay) {
     height: 38px;

@@ -11,6 +11,7 @@ const initialState = {
         year: moment().year(),
         dayNum:moment().day()
     },
+    lastMonth: (moment().add(11, 'M').locale("he").format("MM")),
     isOpen: true
 };
 
@@ -18,19 +19,39 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.NEXT_MONTH:
             //Increase the month by one
+            let newChosenMonth;
+            if(state.lastMonth==state.chosenMonth){
+                newChosenMonth = state.chosenMonth
+            }else{
+                if(state.chosenMonth==12){
+                    newChosenMonth=1
+                }else{
+                    newChosenMonth = state.chosenMonth+1
+                }
+            }
             return {
                 ...state,
-                chosenMonth: state.chosenMonth <12 ? state.chosenMonth+1:1
+                chosenMonth: newChosenMonth
             }
         case actionTypes.PREV_MONTH:
             //Go back to previous month
+            //Increase the month by one
+            let newChosenMonthBack;
+            if(state.startDay.month+1==state.chosenMonth){
+                newChosenMonthBack = state.chosenMonth
+            }else{
+                if(state.chosenMonth==1){
+                    newChosenMonthBack=12
+                }else{
+                    newChosenMonthBack = state.chosenMonth-1
+                }
+            }
             return {
                 ...state,
-                chosenMonth: state.chosenMonth ==1 ? 12:state.chosenMonth-1
+                chosenMonth: newChosenMonthBack
             }
         case actionTypes.CHOOSE_MONTH:
             //Change month selected
-            console.log(action)
             return {
                 ...state,
                 chosenMonth: action.month

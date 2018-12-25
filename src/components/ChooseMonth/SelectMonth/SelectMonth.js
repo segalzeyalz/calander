@@ -7,11 +7,13 @@ class SelectMonth extends Component {
   }
   render() {
     return (
-        <select onChange={(event)=>this.props.onSelect(parseInt(event.target.value))} className={CSS.Select}>
-        {this.props.dates.map(date => (
-            <option selected={date.MonthNum==this.props.chosenMonth} key={date.MonthNum} value={date.MonthNum}>{date.MonthName}</option>
-        ))}
-        </select>
+        <div className={CSS.Wrapper}>
+          <select onChange={(event)=>this.props.onSelect(parseInt(event.target.value))} className={CSS.Select}>
+          {this.props.dates.map(date => (
+              <option selected={date.MonthNum==this.props.chosenMonth} key={date.MonthNum} value={date.MonthNum}>{date.MonthName}</option>
+          ))}
+          </select>
+        </div>
     );
   }
 }
