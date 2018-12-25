@@ -9,9 +9,9 @@ class ChooseMonth extends Component {
   render() {
     return (
       <div className={CSS.Container}>
-        <BtnMonth type="next" onNext={this.props.onNext}/>
+        <BtnMonth isStartMonth={this.props.isStartMonth} isLastMonth={this.props.isLastMonth} type="next" onNext={this.props.onNext}/>
         <SelectMonth onSelect={this.props.onSelect} chosenMonth={this.props.chosenMonth} dates={this.props.dates} onMount={this.props.onMount}/>
-        <BtnMonth type="before" onPrev={this.props.onPrev}/>        
+        <BtnMonth isStartMonth={this.props.isStartMonth} isLastMonth={this.props.isLastMonth} type="before" onPrev={this.props.onPrev}/>        
       </div>
     );
   }
@@ -21,7 +21,10 @@ const mapStateToProps = state => {
   return {
       dates: state.dates,
       chosenMonth:state.chosenMonth,
-      firstMonth:state.startDay.month};
+      firstMonth:state.startDay.month,
+      isStartMonth:state.isStartMonth,
+      isLastMonth:state.isLastMonth
+    };
 };
 
 const mapDispatchToProps = dispatch => {

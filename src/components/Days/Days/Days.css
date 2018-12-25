@@ -6,6 +6,7 @@
     height: 38px;
     width: 38px;
     margin: 1px;
+    user-select: none;
     border-radius: 50%;
 }
 :local(.DayOn:hover) {
@@ -35,5 +36,5 @@
 :local(.BlankDay) {
     height: 38px;
     width: 38px;
-    margin: 1px;
+    margin: 10px;
 }

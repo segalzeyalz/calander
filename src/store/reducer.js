@@ -12,7 +12,9 @@ const initialState = {
         dayNum:moment().day()
     },
     lastMonth: (moment().add(11, 'M').locale("he").format("MM")),
-    isOpen: true
+    isOpen: true,
+    isLastMonth: false,
+    isStartMonth: true
 };
 
 const reducer = (state = initialState, action) => {
@@ -20,9 +22,14 @@ const reducer = (state = initialState, action) => {
         case actionTypes.NEXT_MONTH:
             //Increase the month by one
             let newChosenMonth;
+            let nextIsLastMonth=false;
             if(state.lastMonth==state.chosenMonth){
                 newChosenMonth = state.chosenMonth
+                nextIsLastMonth=true;
             }else{
+                if(state.lastMonth-1==state.chosenMonth){
+                    nextIsLastMonth=true;
+                }
                 if(state.chosenMonth==12){
                     newChosenMonth=1
                 }else{
@@ -31,14 +38,18 @@ const reducer = (state = initialState, action) => {
             }
             return {
                 ...state,
+                isStartMonth:false,
+                isLastMonth:nextIsLastMonth,
                 chosenMonth: newChosenMonth
             }
         case actionTypes.PREV_MONTH:
             //Go back to previous month
             //Increase the month by one
             let newChosenMonthBack;
+            let isStartMonthPrev = false;
             if(state.startDay.month+1==state.chosenMonth){
-                newChosenMonthBack = state.chosenMonth
+                newChosenMonthBack = state.chosenMonth;
+                isStartMonthPrev=true;
             }else{
                 if(state.chosenMonth==1){
                     newChosenMonthBack=12
@@ -48,16 +59,27 @@ const reducer = (state = initialState, action) => {
             }
             return {
                 ...state,
-                chosenMonth: newChosenMonthBack
+                chosenMonth: newChosenMonthBack,
+                isStartMonth:isStartMonthPrev,
+                isLastMonth:false
             }
         case actionTypes.CHOOSE_MONTH:
             //Change month selected
+            let isLastMonth=false;
+            let isStartMonth = false;
+            if(action.month==state.lastMonth){
+                isLastMonth=true;
+            }
+            if(state.startDay.month+1==action.month){
+                isStartMonth=true;
+            }
             return {
                 ...state,
-                chosenMonth: action.month
+                chosenMonth: action.month,
+                isLastMonth:isLastMonth,
+                isStartMonth:isStartMonth
             }
         case actionTypes.SELECT_DAY:
-        console.log(action.selectedDay)
             return {
                 ...state,
                 selectedDay: action.selectedDay

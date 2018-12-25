@@ -14,6 +14,9 @@
     align-items: center;
     cursor: pointer;
 }
+:local(.Disable){
+    color:#F2F2F2;
+}
 :local(.Arrow){
     user-select: none;
     font-size:33px;
