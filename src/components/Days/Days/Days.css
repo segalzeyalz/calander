@@ -1,11 +1,12 @@
 :local(.Day) {
-    font-family: Almoni 19px bold;
+    font-family:"Open Sans";
+    font-size: 12px;
+    font-weight: 700;
     background-color: #D8EAEA;
     height: 38px;
     width: 38px;
     margin: 1px;
     border-radius: 50%;
-    font-weight: 700;
 }
 :local(.DayOn:hover) {
     background-color: #25877D;

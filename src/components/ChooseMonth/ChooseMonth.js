@@ -7,12 +7,11 @@ import SelectMonth from './SelectMonth/SelectMonth'
 
 class ChooseMonth extends Component {
   render() {
-    let {firstMonth} = this.props;
     return (
       <div className={CSS.Container}>
-        <BtnMonth firstMonth={this.props.chosenMonth==firstMonth+1} type="next" onNext={this.props.onNext}/>
+        <BtnMonth type="next" onNext={this.props.onNext}/>
         <SelectMonth onSelect={this.props.onSelect} chosenMonth={this.props.chosenMonth} dates={this.props.dates} onMount={this.props.onMount}/>
-        <BtnMonth firstMonth={firstMonth} type="before" onPrev={this.props.onPrev}/>        
+        <BtnMonth type="before" onPrev={this.props.onPrev}/>        
       </div>
     );
   }

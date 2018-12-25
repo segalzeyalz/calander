@@ -15,5 +15,6 @@
     cursor: pointer;
 }
 :local(.Arrow){
-    height:10px;
+    user-select: none;
+    font-size:33px;
 }
