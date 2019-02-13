@@ -102,6 +102,8 @@ const reducer = (state = initialState, action) => {
             }
             return {...state,
                 dates:dateObj}
+                    default:
+            return {...state}
 
     }
     return state;
